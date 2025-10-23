@@ -14,7 +14,7 @@ env/
 
 # UV specific
 .uv/
-uv.lock
+# Note: uv.lock SHOULD be committed (don't ignore it)
 
 # IDEs
 .vscode/

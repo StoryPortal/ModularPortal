@@ -28,7 +28,16 @@ CUSTOM_PITCHES = {
     3: 72,  # Unit 3 → High C
     4: 55,  # Unit 4 → Low G
     5: 69,  # Unit 5 → A
-    # Add more units as needed, or leave blank to use default
+    6: 74,  # Unit 6 → B
+    7: 79,  # Unit 7 → High D
+    8: 81,  # Unit 8 → High E
+    9: 84,  # Unit 9 → High G
+    10: 86,  # Unit 10 → High A
+    11: 88,  # Unit 11 → High B
+    12: 91,  # Unit 12 → High C5
+    13: 93,  # Unit 13 → High D5
+    14: 95,  # Unit 14 → High E5
+    15: 98,  # Unit 15 → High G5
 }
 
 # Default pitch for units not in CUSTOM_PITCHES
