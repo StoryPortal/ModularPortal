@@ -22,22 +22,27 @@ PITCH_MODE = "custom"  # Options: 'custom', 'spread', 'octaves', 'firing_rate', 
 # Custom pitch mapping: Map specific unit indices to MIDI notes
 # MIDI notes: 60=Middle C, 62=D, 64=E, 65=F, 67=G, 69=A, 71=B, 72=High C
 CUSTOM_PITCHES = {
-    0: 60,  # Unit 0 → Middle C
-    1: 64,  # Unit 1 → E
-    2: 67,  # Unit 2 → G
-    3: 72,  # Unit 3 → High C
-    4: 55,  # Unit 4 → Low G
-    5: 69,  # Unit 5 → A
-    6: 74,  # Unit 6 → B
-    7: 79,  # Unit 7 → High D
-    8: 81,  # Unit 8 → High E
-    9: 84,  # Unit 9 → High G
-    10: 86,  # Unit 10 → High A
-    11: 88,  # Unit 11 → High B
-    12: 91,  # Unit 12 → High C5
-    13: 93,  # Unit 13 → High D5
-    14: 95,  # Unit 14 → High E5
-    15: 98,  # Unit 15 → High G5
+    0: 20,  # Unit 0 → Middle C
+    1: 21,  # Unit 1 → E
+    2: 22,  # Unit 2 → G
+    3: 23,  # Unit 3 → High C
+    4: 24,  # Unit 4 → Low G
+    5: 25,  # Unit 5 → A
+    6: 26,  # Unit 6 → B
+    7: 27,  # Unit 7 → High D
+    8: 28,  # Unit 8 → High E
+    9: 29,  # Unit 9 → High G
+    10: 30,  # Unit 10 → High A
+    11: 31,  # Unit 11 → High B
+    12: 32,  # Unit 12 → High C5
+    13: 33,  # Unit 13 → High D5
+    14: 34,  # Unit 14 → High E5
+    15: 35,  # Unit 15 → High G5
+    16: 36,  # Unit 16 → High A5
+    17: 37,  # Unit 17 → High B5
+    18: 38,  # Unit 18 → High C6
+    19: 39,  # Unit 19 → High D6
+    20: 40,  # Unit 20 → High E6
 }
 
 # Default pitch for units not in CUSTOM_PITCHES
@@ -51,7 +56,7 @@ OCTAVE_SPREAD = 12  # Semitones per octave
 
 # Which units to sonify
 UNITS_TO_SONIFY = None  # None = all units, or list like [0, 1, 2, 5]
-MAX_UNITS = 16  # Maximum number of units
+MAX_UNITS = 21 # Maximum number of units
 # ==========================================
 
 

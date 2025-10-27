@@ -28,7 +28,7 @@ env/
 Thumbs.db
 
 # Data files (optional - uncomment if you don't want to push large data files)
-# *.parquet
+*.parquet
 # *.mid
 # *.wav
 # *.csv
@@ -39,5 +39,6 @@ Thumbs.db
 
 # Project specific
 spike_times_output.parquet
-*.mid
-*.wav
+neural_audio_visualization_notes.md
+# *.mid
+# *.wav

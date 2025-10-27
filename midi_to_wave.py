@@ -30,7 +30,7 @@ def midi_to_wav(midi_file, output_wav, sample_rate=44100):
     pm = pretty_midi.PrettyMIDI(midi_file)
 
     print(f"Synthesizing audio (this may take a moment)...")
-    audio_data = pm.fluidsynth(fs=sample_rate)
+    audio_data = pm.fluidsynth(fs=sample_rate, synthesizer="./CindyBells.sf2")
 
     # Normalize audio to prevent clipping
     audio_data = audio_data / np.max(np.abs(audio_data))
