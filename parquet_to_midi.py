@@ -8,8 +8,8 @@ import pretty_midi
 
 
 # ============= CONFIGURATION =============
-PARQUET_FILE = "spike_times_output.parquet"
-OUTPUT_MIDI = "spikes_sonified.mid"
+PARQUET_FILE = "session_743475441_spiketimes_converted.parquet"
+OUTPUT_MIDI = "743475441_spikes_sonified.mid"
 
 # Sonification parameters
 TIME_SCALE = 0.1  # 0.1 = 10x faster, 1.0 = real time
@@ -62,9 +62,33 @@ MAX_UNITS = 21 # Maximum number of units
 
 def parse_spike_times(spike_times_str):
     """Convert string representation back to numpy array."""
-    cleaned = spike_times_str.strip("[]")
-    values = cleaned.split()
-    return np.array([float(v) for v in values])
+    # Handle truncated numpy string representations that contain '...'
+    if '...' in spike_times_str:
+        # This means the array was truncated when converted to string
+        # We need to use a different approach - try to evaluate it as Python code
+        try:
+            # Remove any scientific notation formatting issues and evaluate
+            import ast
+            return np.array(ast.literal_eval(spike_times_str))
+        except:
+            # If that fails, try to extract what we can
+            cleaned = spike_times_str.strip("[]")
+            # Remove the '...' and any surrounding whitespace
+            parts = [part.strip() for part in cleaned.split() if part != '...']
+            # Convert valid float strings
+            values = []
+            for part in parts:
+                try:
+                    values.append(float(part))
+                except ValueError:
+                    continue  # Skip invalid parts
+            print(f"Warning: Truncated array detected, only {len(values)} values recovered")
+            return np.array(values)
+    else:
+        # Original parsing for non-truncated arrays
+        cleaned = spike_times_str.strip("[]")
+        values = cleaned.split()
+        return np.array([float(v) for v in values])
 
 
 def get_pitch_for_unit(unit_idx, unit_id, spike_times, mode="custom"):
